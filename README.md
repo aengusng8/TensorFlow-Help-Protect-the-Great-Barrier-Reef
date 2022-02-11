@@ -13,32 +13,32 @@
     ![image](https://user-images.githubusercontent.com/67547213/153640886-7e7caae4-0a8d-4139-9a14-633186be644f.png)
 
     - heavily rotated Mosaic data augmentation (w/o artifact or tiny bounding boxes): RandomCrop -> Rotate -> CenterCrop
-        ```python
-        img4 = np.full((imsize, imsize, 3), 114, dtype=np.uint8)  # base image with 4 tiles
-    yc, xc = [int(random.uniform(imsize - imsize / 1.44, imsize / 1.44)) for _ in range(2)]
-    
-    for i, index in enumerate(indices):
-        # Load image & label
-        img, _, (h, w) = load_image(self, index)
-        labels, segments = self.labels[index].copy(), self.segments[index].copy()
+    ```python
+img4 = np.full((imsize, imsize, 3), 114, dtype=np.uint8)  # base image with 4 tiles
+yc, xc = [int(random.uniform(imsize - imsize / 1.44, imsize / 1.44)) for _ in range(2)]
 
-        if labels.size:
-            labels = xywhn2xyxy(labels[:, 1:], w, h)  # normalized xywh to pixel xyxy format
-            segments = [xyn2xy(x, w, h) for x in segments]
-            cats = np.zeros(labels.shape[0], dtype=int)
-        else: 
-            labels, cats = np.array([]), np.array([])
+for i, index in enumerate(indices):
+    # Load image & label
+    img, _, (h, w) = load_image(self, index)
+    labels, segments = self.labels[index].copy(), self.segments[index].copy()
 
-        # place img in img4
-        if i == 0:  # top left
-            crop_edge = max(int(1.43 * yc), int(1.43 * xc))
-            RANDOM_CROP_ROTATED_CENTRER_CROP = A.Compose([  
-                                                            A.RandomCrop(height=crop_edge, width=crop_edge, p=1.0), # sqrt(2) < 1.42
-                                                            A.Rotate(limit=170, border_mode=1, p=1.0),
-                                                            A.CenterCrop(height=yc, width=xc, p=1.0),  
-                                                            ], bbox_params=A.BboxParams(format="pascal_voc", label_fields=["bbox_classes"])) 
-            transformed = RANDOM_CROP_ROTATED_CENTRER_CROP(image=img, bboxes=labels, bbox_classes=cats)
-        ```
+    if labels.size:
+        labels = xywhn2xyxy(labels[:, 1:], w, h)  # normalized xywh to pixel xyxy format
+        segments = [xyn2xy(x, w, h) for x in segments]
+        cats = np.zeros(labels.shape[0], dtype=int)
+    else: 
+        labels, cats = np.array([]), np.array([])
+
+    # place img in img4
+    if i == 0:  # top left
+        crop_edge = max(int(1.43 * yc), int(1.43 * xc))
+        RANDOM_CROP_ROTATED_CENTRER_CROP = A.Compose([  
+                                                        A.RandomCrop(height=crop_edge, width=crop_edge, p=1.0), # sqrt(2) < 1.42
+                                                        A.Rotate(limit=170, border_mode=1, p=1.0),
+                                                        A.CenterCrop(height=yc, width=xc, p=1.0),  
+                                                        ], bbox_params=A.BboxParams(format="pascal_voc", label_fields=["bbox_classes"])) 
+        transformed = RANDOM_CROP_ROTATED_CENTRER_CROP(image=img, bboxes=labels, bbox_classes=cats)
+    ```
        
     - 
         
