@@ -1,6 +1,6 @@
 ## TensorFlow - Help Protect the Great Barrier Reef
 
-![image](https://user-images.githubusercontent.com/67547213/153533856-5d6a1982-5860-4eaf-aa43-43ceaecb5b0e.png)
+![image](https://user-images.githubusercontent.com/67547213/153533915-b1cf14db-326d-4eaf-b98a-d78e584c0604.png)
 
 ### Summary
 - Model 1 (Classifier): EfficientNetV2
