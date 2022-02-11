@@ -1,4 +1,4 @@
-%%writefile ./yolov5/models/yolo.py
+#%%writefile ./yolov5/models/yolo.py
 
 # YOLOv5 🚀 by Ultralytics, GPL-3.0 license
 """
@@ -214,8 +214,8 @@ class Model(nn.Module):
 
     def _forward_augment(self, x):
         img_size = x.shape[-2:]  # height, width
-        s = [1, 0.83, 0.67]  # scales
-        f = [None, 3, None]  # flips (2-ud, 3-lr)
+        s = [1, 1, 1, 0.83, 0.83]  # scales
+        f = [None, 2, 3, None, 3] # flips (2-ud, 3-lr)
         y = []  # outputs
         for si, fi in zip(s, f):
             xi = scale_img(x.flip(fi) if fi else x, si, gs=int(self.stride.max()))
