@@ -12,3 +12,5 @@
 - Inference: use EfficientNetV2 classifier to predict class which is used to refine final prediction of Mask R-CNN
 - 5 folds cross-validation
 - Ensembling masks from different models with customed Weighted Boxes Fusion
+
+   s = [1, 1, 1, 0.83, 0.83], f = [None, 2, 3, None, 3]
