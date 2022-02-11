@@ -1,6 +1,5 @@
 ## TensorFlow - Help Protect the Great Barrier Reef
 
-![newplot](https://user-images.githubusercontent.com/67547213/153533484-ec87720f-26b8-4bbe-a319-76ea4eb7e771.png)
 ![image](https://user-images.githubusercontent.com/67547213/153533582-18d09cef-568e-4ae5-b6e7-9463886ffa6d.png)
 
 ### Summary
