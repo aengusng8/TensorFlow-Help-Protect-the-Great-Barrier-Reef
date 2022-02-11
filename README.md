@@ -1,4 +1,4 @@
-## TensorFlow - Help Protect the Great Barrier Reef
+## TensorFlow - Help Protect the Great Barrier Reef (Here is very short form of solution because the competition isn't ended.)
 
 ![image](https://user-images.githubusercontent.com/67547213/153533915-b1cf14db-326d-4eaf-b98a-d78e584c0604.png)
 
@@ -40,7 +40,7 @@ for i, index in enumerate(indices):
         transformed = RANDOM_CROP_ROTATED_CENTRER_CROP(image=img, bboxes=labels, bbox_classes=cats)
 ```
        
-    - 
+### (to be continued)
         
 
-   s = [1, 1, 1, 0.83, 0.83], f = [None, 2, 3, None, 3]: 
+<!--    s = [1, 1, 1, 0.83, 0.83], f = [None, 2, 3, None, 3]:  -->
