@@ -13,7 +13,7 @@
     ![image](https://user-images.githubusercontent.com/67547213/153640886-7e7caae4-0a8d-4139-9a14-633186be644f.png)
 
     - heavily rotated Mosaic data augmentation (w/o artifact or tiny bounding boxes): RandomCrop -> Rotate -> CenterCrop
-    ```python
+```python
 img4 = np.full((imsize, imsize, 3), 114, dtype=np.uint8)  # base image with 4 tiles
 yc, xc = [int(random.uniform(imsize - imsize / 1.44, imsize / 1.44)) for _ in range(2)]
 
@@ -38,7 +38,7 @@ for i, index in enumerate(indices):
                                                         A.CenterCrop(height=yc, width=xc, p=1.0),  
                                                         ], bbox_params=A.BboxParams(format="pascal_voc", label_fields=["bbox_classes"])) 
         transformed = RANDOM_CROP_ROTATED_CENTRER_CROP(image=img, bboxes=labels, bbox_classes=cats)
-    ```
+```
        
     - 
         
