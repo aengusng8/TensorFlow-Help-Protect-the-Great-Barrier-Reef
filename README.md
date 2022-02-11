@@ -3,14 +3,14 @@
 ![image](https://user-images.githubusercontent.com/67547213/153533915-b1cf14db-326d-4eaf-b98a-d78e584c0604.png)
 
 ### Summary
-- Model 1 (Classifier): EfficientNetV2
-    - train with `train_semi_supervised` and Sartorious dataset
-    - result: `0.0 losses` and `100% accuracy` on training, validation sets
-- Model 2 (Instance Segmentation): Mask R-CNN (R101-FPN)
-    - Training stage 1: train with eight-class LIVECell dataset
-    - Training stage 2: train with three-class Sartorious dataset with pretrained weights from stage 1
-- Inference: use EfficientNetV2 classifier to predict class which is used to refine final prediction of Mask R-CNN
-- 5 folds cross-validation
-- Ensembling masks from different models with customed Weighted Boxes Fusion
+- bluish images because of underwater env -> Data enhancement: CLAHE.
+- small object detection
+    - Increase image size that are multiple of 64: 1920, 2240, 2432,...
+    - cuts two last heads of Yolov5, because they are used to detect large and extremely large object.
+- small training dataset
+    - use square images (resize 1280x720 to 1280x1280) to octuple (x8) number of images in training and validating dataset, and also octuple (x8) number of transforms when using Test time augmentation. Specifically, using 8 combinations of 3 transforms (Transpose, HorizontalFlip, and VerticalFlip) creates a original and 7 augmented images (below example). 
+    ![image](https://user-images.githubusercontent.com/67547213/153640886-7e7caae4-0a8d-4139-9a14-633186be644f.png)
+
+    - 
 
    s = [1, 1, 1, 0.83, 0.83], f = [None, 2, 3, None, 3]
