@@ -1,4 +1,4 @@
-## TensorFlow - Help Protect the Great Barrier Reef (Here is very short form of solution because the competition isn't ended.)
+## TensorFlow - Help Protect the Great Barrier Reef (Here is very short form of solution because the competition has not yet ended.)
 
 ![image](https://user-images.githubusercontent.com/67547213/153533915-b1cf14db-326d-4eaf-b98a-d78e584c0604.png)
 
